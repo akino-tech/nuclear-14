@@ -54,6 +54,10 @@
       amount: 3
     - id: N14MaterialHideGecko
       amount: 1
+    - id: ForgeAnimalBone # Forge-Change-Start
+      amount: 2
+    - id: ForgeAnimalSinew
+      amount: 1 # Forge-Change-End
   #- type: Reproductive
     #breedChance: 0.05
     #birthPopup: reproductive-laid-egg-popup
@@ -101,6 +105,10 @@
       amount: 3
     - id: N14MaterialHideGeckoFire
       amount: 1
+    - id: ForgeAnimalBone # Forge-Change-Start
+      amount: 2
+    - id: ForgeAnimalSinew
+      amount: 1 # Forge-Change-End
   # - type: Reproductive
     # breedChance: 0.05
     # birthPopup: reproductive-laid-egg-popup
@@ -188,6 +196,10 @@
       amount: 3
     - id: N14MaterialHideGeckoGolden
       amount: 1
+    - id: ForgeAnimalBone # Forge-Change-Start
+      amount: 2
+    - id: ForgeAnimalSinew
+      amount: 1 # Forge-Change-End
   # - type: Reproductive
     # breedChance: 0.05
     # birthPopup: reproductive-laid-egg-popup
@@ -290,6 +302,16 @@
       reagents:
       - ReagentId: NightstalkerVenom
         Quantity: 1
+    # Forge-Change-Start
+  - type: Butcherable # Forge-Change-Comp
+    spawned:
+    - id: N14MaterialNightstalkerPelt
+      amount: 1
+      prob: 0.5
+    - id: ForgeAnimalBone
+      amount: 1
+    - id: ForgeAnimalSinew
+      amount: 1 # Forge-Change-End
 
 # Adult Nightstalker
 - type: entity
@@ -335,6 +357,14 @@
     spawned:
     - id: N14MaterialNightstalkerPelt
       amount: 1
+    - id: ForgeAnimalDeathclawHide # Forge-Change-Start
+      amount: 1
+    - id: ForgeAnimalBone3
+      amount: 1
+    - id: ForgeAnimalClaw
+      amount: 4
+    - id: ForgeAnimalSinew
+      amount: 4 # Forge-Change-End
   - type: DamageStateVisuals
     states:
       Alive:
@@ -522,6 +552,14 @@
       amount: 8
     - id: N14MaterialRawLeather1
       amount: 6
+    - id: ForgeAnimalDeathclawHide # Forge-Change-Start
+      amount: 1
+    - id: ForgeAnimalBone3
+      amount: 1
+    - id: ForgeAnimalClaw
+      amount: 4
+    - id: ForgeAnimalSinew
+      amount: 4 # Forge-Change-End
 
 #MARK: Albino Deathclaw
 - type: entity
@@ -656,3 +694,19 @@
       - Mousetrap
       - SlipTile
       - SlipEntity
+    # Forge-Change-Start
+  - type: Butcherable # Forge-Change-Comp
+    spawned:
+    - id: N14FoodMeatRadRaw
+      amount: 8
+    - id: N14MaterialRawLeather1
+      amount: 6
+    - id: ForgeAnimalGenericHide
+      amount: 1
+    - id: ForgeAnimalBone3
+      amount: 1
+    - id: ForgeAnimalClaw
+      amount: 2
+    - id: ForgeAnimalSinew
+      amount: 3
+  # Forge-Change-End

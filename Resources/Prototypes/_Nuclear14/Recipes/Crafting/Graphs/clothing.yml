@@ -117,7 +117,14 @@
             sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
             state: pelt_nightstalker
           doAfter: 8
+        # Forge-Change-Start
+        - tag: ForgeLootSinew
+          name: сухожилия
+          icon:
+            sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+            state: sinew
+          doAfter: 5
+        # Forge-Change-End
 
   - node: head
     entity: N14ClothingHeadHatNightstalker
-

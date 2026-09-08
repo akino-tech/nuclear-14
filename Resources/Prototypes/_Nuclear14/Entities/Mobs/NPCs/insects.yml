@@ -67,6 +67,10 @@
     - id: N14FoodBloatflyAcidSac
       amount: 1
       prob: 0.75
+    # Forge-Change-Start
+    - id: ForgeAnimalSinew
+      amount: 1
+    # Forge-Change-End
 
 #MARK: Giant Ant
 - type: entity
@@ -110,6 +114,10 @@
       amount: 2
     - id: N14FoodMeatRadRaw
       amount: 3
+    # Forge-Change-Start
+    - id: ForgeAnimalSinew
+      amount: 1
+    # Forge-Change-End
   - type: Bloodstream
     bloodMaxVolume: 500
   - type: Temperature
@@ -169,6 +177,10 @@
     - id: N14FoodFireantNectar
       amount: 1
       prob: 0.75
+    # Forge-Change-Start
+    - id: ForgeAnimalSinew
+      amount: 1
+    # Forge-Change-End
 
 #MARK: Radroach
 - type: entity
@@ -227,6 +239,10 @@
     spawned:
     - id: N14FoodMeatRadroachFillet
       amount: 1
+    # Forge-Change-Start
+    - id: ForgeAnimalSinew
+      amount: 1
+    # Forge-Change-End
 
 #MARK: Radscorpion
 - type: entity
@@ -276,6 +292,10 @@
     - id: N14MaterialRadscorpionTail
       amount: 1
       prob: 0.8
+    # Forge-Change-Start
+    - id: ForgeAnimalSinew
+      amount: 2
+    # Forge-Change-End
   - type: Bloodstream
     bloodMaxVolume: 500
   - type: Temperature
@@ -367,7 +387,7 @@
       Alive:
         Base: cazador
       Critical:
-        Base: cazador
+        Base: dead
       Dead:
         Base: dead
   - type: Stamina
@@ -408,6 +428,10 @@
     - id: N14FoodCazadorAcidSac
       amount: 1
       prob: 0.75
+    # Forge-Change-Start
+    - id: ForgeAnimalSinew
+      amount: 1
+    # Forge-Change-End
   - type: MobThresholds
     thresholds:
       0: Alive

@@ -1,0 +1,249 @@
+# Кости
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalBone
+  name: кость
+  description: Белая и прочная.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    layers:
+    - state: bone
+      map: ["base"]
+  - type: Stack
+    stackType: ForgeAnimalBone
+    count: 1
+    baseLayer: base
+    layerStates:
+    - bone
+    - bone_2
+    - bone_2
+    - bone_3
+    - bone_3
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ForgeLootBone
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalBone2
+  name: кости 
+  description: Несколько прочных костей.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    layers:
+    - state: bone
+      map: ["base"]
+  - type: Stack
+    stackType: ForgeAnimalBone2
+    count: 1
+    baseLayer: base
+    layerStates:
+    - bone
+    - bone_2
+    - bone_2
+    - bone_3
+    - bone_3
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ForgeLootBone
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalBone3
+  name: груда костей
+  description: Груда костей, оставшихся после разделки.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    layers:
+    - state: bone
+      map: ["base"]
+  - type: Stack
+    stackType: ForgeAnimalBone3
+    count: 1
+    baseLayer: base
+    layerStates:
+    - bone
+    - bone_2
+    - bone_2
+    - bone_3
+    - bone_3
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ForgeLootBone
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalClaw
+  name: костяной коготь
+  description: Крепкий коготь животного.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: bone_claw
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ForgeLootBone
+
+# Сухожилия
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalSinew
+  name: сухожилия
+  description: Сухожилия, извлечённые из туши животного.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    layers:
+    - state: sinew
+      map: ["base"]
+  - type: Stack
+    stackType: ForgeAnimalSinew
+    count: 1
+    baseLayer: base
+    layerStates:
+    - sinew
+    - sinewcuff
+    - sinewcuff
+    - sinewcuff
+    - sinewcuff
+  - type: Appearance
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - ForgeLootSinew
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalSinewCuff
+  name: петля из сухожилий
+  description: Сухожилия, свёрнутые в петлю.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: sinewcuff
+  - type: Item
+    size: Small
+
+# Шкуры
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalDogHide
+  name: собачья шкура
+  description: Шкура, снятая с собаки.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: hide_dog
+  - type: Item
+    size: Normal
+  - type: Tag
+    tags:
+    - ForgeDogHide
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalGenericHide
+  name: шкура животного
+  description: Необработанная шкура животного.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: hide_generic
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalDeathclawHide
+  name: шкура когтя смерти
+  description: Плотная шкура когтя смерти.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: hide_deathclaw
+  - type: Item
+    size: Normal
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalBighornerPelt
+  name: шкура толсторога
+  description: Мохнатая шкура толсторога.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: pelt_bighorner
+  - type: Item
+    size: Normal
+
+# Человеческая кожа
+
+- type: entity
+  parent: BaseItem
+  id: ForgeHumanSkin2
+  name: человеческая кожа
+  description: Фрагмент человеческой кожи.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: skin_human_2
+  - type: Item
+    size: Small
+
+- type: entity
+  parent: BaseItem
+  id: ForgeHumanSkin3
+  name: человеческая кожа
+  description: Крупный фрагмент человеческой кожи.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: skin_human_3
+  - type: Item
+    size: Normal
+
+- type: stack
+  id: ForgeAnimalBone
+  name: кость
+  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone }
+  spawn: ForgeAnimalBone
+  maxCount: 5
+
+- type: stack
+  id: ForgeAnimalBone2
+  name: кости
+  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone_2 }
+  spawn: ForgeAnimalBone2
+  maxCount: 5
+
+- type: stack
+  id: ForgeAnimalBone3
+  name: груда костей
+  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone_3 }
+  spawn: ForgeAnimalBone3
+  maxCount: 5
+
+- type: stack
+  id: ForgeAnimalSinew
+  name: сухожилия
+  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: sinew }
+  spawn: ForgeAnimalSinew
+  maxCount: 5
