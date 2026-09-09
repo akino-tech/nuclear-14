@@ -1120,6 +1120,10 @@
     price: 5
   - proto: N14FoodMeatRadRaw
     price: 5
+  # Forge-Change-Start
+  - proto: ForgeFoodAntBrain
+    price: 10
+  # Forge-Change-End
   - proto: N14JunkAbraxoCleaner
     price: 8
   - proto: N14MaterialLeather1

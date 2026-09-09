@@ -50,6 +50,11 @@
         Slash: 8                        # Forge-Change
   - type: Butcherable
     spawned:
+    # Forge-Change-Start
+    - id: N14FoodEggGecko
+      amount: 1
+      prob: 0.25
+    # Forge-Change-End
     - id: N14FoodMeatGecko
       amount: 3
     - id: N14MaterialHideGecko
@@ -101,6 +106,11 @@
         Slash: 7                        # Forge-Change
   - type: Butcherable
     spawned:
+    # Forge-Change-Start
+    - id: N14FoodEggGecko
+      amount: 1
+      prob: 0.25
+    # Forge-Change-End
     - id: N14FoodMeatGeckoFire
       amount: 3
     - id: N14MaterialHideGeckoFire
@@ -192,6 +202,11 @@
         Radiation: 5                       # Forge-Change
   - type: Butcherable
     spawned:
+    # Forge-Change-Start
+    - id: N14FoodEggGecko
+      amount: 1
+      prob: 0.25
+    # Forge-Change-End
     - id: N14FoodMeatGeckoGolden
       amount: 3
     - id: N14MaterialHideGeckoGolden
@@ -355,6 +370,11 @@
       200: Dead
   - type: Butcherable
     spawned:
+    # Forge-Change-Start
+    - id: N14FoodEggNightstalker
+      amount: 1
+      prob: 0.25
+    # Forge-Change-End
     - id: N14MaterialNightstalkerPelt
       amount: 1
     - id: ForgeAnimalDeathclawHide # Forge-Change-Start
@@ -548,6 +568,11 @@
     - Deathclaw
   - type: Butcherable
     spawned:
+    # Forge-Change-Start
+    - id: N14FoodEggDeathclaw
+      amount: 1
+      prob: 0.25
+    # Forge-Change-End
     - id: N14FoodMeatRadRaw
       amount: 8
     - id: N14MaterialRawLeather1

@@ -112,9 +112,14 @@
     spawned:
     - id: N14MaterialAntChitin1
       amount: 2
-    - id: N14FoodMeatRadRaw
-      amount: 3
     # Forge-Change-Start
+    - id: ForgeFoodAntMeat
+      amount: 3
+    - id: ForgeFoodAntBrain
+      amount: 1
+    - id: ForgeFoodAntEgg
+      amount: 1
+      prob: 0.25
     - id: ForgeAnimalSinew
       amount: 1
     # Forge-Change-End
@@ -172,12 +177,14 @@
     spawned:
     - id: N14MaterialAntChitin
       amount: 1
-    - id: N14FoodMeatRadRaw
+ # Forge-Change-Start
+    - id: ForgeFoodAntMeat
       amount: 3
-    - id: N14FoodFireantNectar
+    - id: ForgeFoodAntBrain
       amount: 1
-      prob: 0.75
-    # Forge-Change-Start
+    - id: ForgeFoodAntEgg
+      amount: 1
+      prob: 0.25
     - id: ForgeAnimalSinew
       amount: 1
     # Forge-Change-End

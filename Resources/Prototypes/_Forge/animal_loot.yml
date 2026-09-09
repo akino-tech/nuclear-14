@@ -3,8 +3,8 @@
 - type: entity
   parent: BaseItem
   id: ForgeAnimalBone
-  name: кость
-  description: Белая и прочная.
+  name: кости
+  description: Прочные кости, оставшиеся после разделки.
   components:
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
@@ -17,9 +17,9 @@
     baseLayer: base
     layerStates:
     - bone
+    - bone
     - bone_2
     - bone_2
-    - bone_3
     - bone_3
   - type: Appearance
   - type: Item
@@ -27,62 +27,29 @@
   - type: Tag
     tags:
     - ForgeLootBone
+- type: stack
+  id: ForgeAnimalBone
+  name: кости
+  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone }
+  spawn: ForgeAnimalBone
+  maxCount: 5
 
+# Варианты начального количества одной общей стопки.
 - type: entity
-  parent: BaseItem
+  parent: ForgeAnimalBone
   id: ForgeAnimalBone2
-  name: кости 
-  description: Несколько прочных костей.
+  suffix: 2
   components:
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
-    layers:
-    - state: bone
-      map: ["base"]
   - type: Stack
-    stackType: ForgeAnimalBone2
-    count: 1
-    baseLayer: base
-    layerStates:
-    - bone
-    - bone_2
-    - bone_2
-    - bone_3
-    - bone_3
-  - type: Appearance
-  - type: Item
-    size: Small
-  - type: Tag
-    tags:
-    - ForgeLootBone
+    count: 2
 
 - type: entity
-  parent: BaseItem
+  parent: ForgeAnimalBone
   id: ForgeAnimalBone3
-  name: груда костей
-  description: Груда костей, оставшихся после разделки.
+  suffix: 4
   components:
-  - type: Sprite
-    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
-    layers:
-    - state: bone
-      map: ["base"]
   - type: Stack
-    stackType: ForgeAnimalBone3
-    count: 1
-    baseLayer: base
-    layerStates:
-    - bone
-    - bone_2
-    - bone_2
-    - bone_3
-    - bone_3
-  - type: Appearance
-  - type: Item
-    size: Small
-  - type: Tag
-    tags:
-    - ForgeLootBone
+    count: 4
 
 - type: entity
   parent: BaseItem
@@ -129,6 +96,13 @@
     tags:
     - ForgeLootSinew
 
+- type: stack
+  id: ForgeAnimalSinew
+  name: сухожилия
+  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: sinew }
+  spawn: ForgeAnimalSinew
+  maxCount: 5
+
 - type: entity
   parent: BaseItem
   id: ForgeAnimalSinewCuff
@@ -140,6 +114,9 @@
     state: sinewcuff
   - type: Item
     size: Small
+  - type: Construction
+    graph: ForgeSinewCuff
+    node: cuff
 
 # Шкуры
 
@@ -157,6 +134,11 @@
   - type: Tag
     tags:
     - ForgeDogHide
+    - RawLeather
+  - type: PhysicalComposition
+    materialComposition:
+      RawLeather: 200
+  - type: Material
 
 - type: entity
   parent: BaseItem
@@ -169,6 +151,13 @@
     state: hide_generic
   - type: Item
     size: Normal
+  - type: Tag
+    tags:
+    - RawLeather
+  - type: PhysicalComposition
+    materialComposition:
+      RawLeather: 200
+  - type: Material
 
 - type: entity
   parent: BaseItem
@@ -181,6 +170,13 @@
     state: hide_deathclaw
   - type: Item
     size: Normal
+  - type: Tag
+    tags:
+    - RawLeather
+  - type: PhysicalComposition
+    materialComposition:
+      RawLeather: 800
+  - type: Material
 
 - type: entity
   parent: BaseItem
@@ -193,6 +189,13 @@
     state: pelt_bighorner
   - type: Item
     size: Normal
+  - type: Tag
+    tags:
+    - RawLeather
+  - type: PhysicalComposition
+    materialComposition:
+      RawLeather: 400
+  - type: Material
 
 # Человеческая кожа
 
@@ -220,30 +223,70 @@
   - type: Item
     size: Normal
 
-- type: stack
-  id: ForgeAnimalBone
-  name: кость
-  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone }
-  spawn: ForgeAnimalBone
-  maxCount: 5
+# Муравьи
 
-- type: stack
-  id: ForgeAnimalBone2
-  name: кости
-  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone_2 }
-  spawn: ForgeAnimalBone2
-  maxCount: 5
+- type: entity
+  parent: FoodBase
+  id: ForgeFoodAntBrain
+  name: мозг муравья
+  description: Небольшой мозг гигантского муравья. Выглядит неаппетитно.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+    state: ant_brain
+  - type: FlavorProfile
+    flavors:
+    - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 3
+  - type: Item
+    size: Small
 
-- type: stack
-  id: ForgeAnimalBone3
-  name: груда костей
-  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: bone_3 }
-  spawn: ForgeAnimalBone3
-  maxCount: 5
+- type: entity
+  parent: FoodBase
+  id: ForgeFoodAntEgg
+  name: яйцо гигантского муравья
+  description: Крупное яйцо с мягкой оболочкой.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+    state: ant_egg
+  - type: FlavorProfile
+    flavors:
+    - egg
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 10
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 4
+  - type: Item
+    size: Small
 
-- type: stack
-  id: ForgeAnimalSinew
-  name: сухожилия
-  icon: { sprite: _Nuclear14/Objects/Misc/mob_drops.rsi, state: sinew }
-  spawn: ForgeAnimalSinew
-  maxCount: 5
+- type: entity
+  parent: FoodBase
+  id: ForgeFoodAntMeat
+  name: сырое мясо муравья
+  description: Кусок мяса гигантского муравья, извлечённый из-под хитинового панциря.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Consumable/Food/pre-war.rsi
+    state: ant_meat
+  - type: FlavorProfile
+    flavors:
+    - meaty
+  - type: SolutionContainerManager
+    solutions:
+      food:
+        maxVol: 15
+        reagents:
+        - ReagentId: Nutriment
+          Quantity: 5
+  - type: Item
+    size: Small
