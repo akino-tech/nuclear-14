@@ -563,7 +563,7 @@
     - id: N14FoodMeatPigrat
       amount: 3
     # Forge-Change-Start
-    - id: ForgeAnimalGenericHide
+    - id: ForgeAnimalPigratHide
       amount: 1
     - id: ForgeAnimalBone
       amount: 2

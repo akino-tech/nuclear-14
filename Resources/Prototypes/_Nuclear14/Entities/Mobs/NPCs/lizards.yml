@@ -377,12 +377,10 @@
     # Forge-Change-End
     - id: N14MaterialNightstalkerPelt
       amount: 1
-    - id: ForgeAnimalDeathclawHide # Forge-Change-Start
-      amount: 1
-    - id: ForgeAnimalBone3
+    - id: ForgeAnimalBone3 # Forge-Change-Start
       amount: 1
     - id: ForgeAnimalClaw
-      amount: 4
+      amount: 2
     - id: ForgeAnimalSinew
       amount: 4 # Forge-Change-End
   - type: DamageStateVisuals

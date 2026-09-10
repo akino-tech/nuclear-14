@@ -1,19 +1,19 @@
 - type: construction
-  id: ForgeTribalKnife
-  name: племенной нож
+  id: ForgeBoneKnife
+  name: костяной нож
   description: Сделать нож из дерева, костей и сухожилий.
-  graph: ForgeTribalKnife
+  graph: ForgeBoneKnife
   startNode: start
   targetNode: knife
   category: construction-category-weapons
   icon:
-    sprite: _Nuclear14/Objects/Weapons/Melee/tribalknife.rsi
+    sprite: _Forge/Objects/Weapons/Melee/bone_knife.rsi
     state: icon
   objectType: Item
   hide: false
 
 - type: constructionGraph
-  id: ForgeTribalKnife
+  id: ForgeBoneKnife
   start: start
   graph:
   - node: start
@@ -30,4 +30,4 @@
         amount: 1
         doAfter: 4
   - node: knife
-    entity: N14TribalKnife
+    entity: ForgeBoneKnife

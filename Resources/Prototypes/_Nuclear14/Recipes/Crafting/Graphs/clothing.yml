@@ -123,11 +123,8 @@
             state: pelt_nightstalker
           doAfter: 8
         # Forge-Change-Start
-        - tag: ForgeLootSinew
-          name: сухожилия
-          icon:
-            sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
-            state: sinew
+        - material: ForgeAnimalSinew
+          amount: 1
           doAfter: 5
         # Forge-Change-End
 

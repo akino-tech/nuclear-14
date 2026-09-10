@@ -57,7 +57,7 @@
       amount: 2
     - id: N14MaterialRawLeather1
       amount: 2
-    - id: ForgeAnimalGenericHide # Forge-Change-Start
+    - id: ForgeAnimalMoleratHide # Forge-Change-Start
       amount: 1
     - id: ForgeAnimalBone
       amount: 2
@@ -143,7 +143,7 @@
       amount: 3
     - id: N14MaterialRawLeather1
       amount: 1
-    - id: ForgeAnimalGenericHide # Forge-Change-Start
+    - id: ForgeAnimalPigratHide # Forge-Change-Start
       amount: 1
     - id: ForgeAnimalBone
       amount: 2
@@ -512,7 +512,7 @@
       amount: 4
     - id: N14MaterialRawLeather1
       amount: 4
-    - id: ForgeAnimalGenericHide # Forge-Change-Start
+    - id: ForgeAnimalRadstagHide # Forge-Change-Start
       amount: 1
     - id: ForgeAnimalBone2
       amount: 1
@@ -585,7 +585,7 @@
     spawned:
     - id: N14FoodMeatRadstag
       amount: 4
-    - id: ForgeAnimalGenericHide # Forge-Change-Start
+    - id: ForgeAnimalRadhogHide # Forge-Change-Start
       amount: 1
     - id: ForgeAnimalBone2
       amount: 1

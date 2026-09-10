@@ -143,11 +143,6 @@
   id: N14TribalKnife
   description: A deadly knife intended for melee confrontations, this one is handmade by tribals.
   components:
-  # Forge-Change-Start
-  - type: Construction # Forge-Change-Comp
-    graph: ForgeTribalKnife
-    node: knife
-  # Forge-Change-End
   - type: Tag
     tags:
     - Knife

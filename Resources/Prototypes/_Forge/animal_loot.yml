@@ -104,11 +104,17 @@
   maxCount: 5
 
 - type: entity
-  parent: BaseItem
+  parent: Zipties
   id: ForgeAnimalSinewCuff
   name: петля из сухожилий
-  description: Сухожилия, свёрнутые в петлю.
+  description: Петля из сухожилий для связывания рук. Рвётся при снятии.
   components:
+  - type: Handcuff
+    brokenPrototype: ForgeAnimalSinewCuffBroken
+    startCuffSound:
+      path: /Audio/Items/Handcuffs/rope_start.ogg
+    endCuffSound:
+      path: /Audio/Items/Handcuffs/rope_end.ogg
   - type: Sprite
     sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
     state: sinewcuff
@@ -117,6 +123,21 @@
   - type: Construction
     graph: ForgeSinewCuff
     node: cuff
+
+- type: entity
+  parent: BaseItem
+  id: ForgeAnimalSinewCuffBroken
+  name: порванная петля из сухожилий
+  description: Обрывки сухожилий. Связать ими кого-нибудь уже не получится.
+  components:
+  - type: Sprite
+    sprite: _Nuclear14/Objects/Misc/mob_drops.rsi
+    state: sinew
+  - type: Item
+    size: Small
+  - type: Tag
+    tags:
+    - Trash
 
 # Шкуры
 
@@ -158,6 +179,46 @@
     materialComposition:
       RawLeather: 200
   - type: Material
+
+- type: entity
+  parent: ForgeAnimalGenericHide
+  id: ForgeAnimalPigratHide
+  name: шкура свинокрыса
+  description: Необработанная шкура свинокрыса.
+  components:
+  - type: Sprite
+    sprite: _Forge/Objects/Misc/mob_drops.rsi
+    state: hide_pigrat
+
+- type: entity
+  parent: ForgeAnimalGenericHide
+  id: ForgeAnimalMoleratHide
+  name: шкура кротокрыса
+  description: Необработанная шкура кротокрыса.
+  components:
+  - type: Sprite
+    sprite: _Forge/Objects/Misc/mob_drops.rsi
+    state: hide_molerat
+
+- type: entity
+  parent: ForgeAnimalGenericHide
+  id: ForgeAnimalRadhogHide
+  name: шкура радкабана
+  description: Необработанная шкура радкабана.
+  components:
+  - type: Sprite
+    sprite: _Forge/Objects/Misc/mob_drops.rsi
+    state: hide_radhog
+
+- type: entity
+  parent: ForgeAnimalGenericHide
+  id: ForgeAnimalRadstagHide
+  name: шкура радоленя
+  description: Необработанная шкура радоленя с пятнистым мехом.
+  components:
+  - type: Sprite
+    sprite: _Forge/Objects/Misc/mob_drops.rsi
+    state: hide_radstag
 
 - type: entity
   parent: BaseItem
@@ -210,6 +271,13 @@
     state: skin_human_2
   - type: Item
     size: Small
+  - type: Tag
+    tags:
+    - RawLeather
+  - type: PhysicalComposition
+    materialComposition:
+      RawLeather: 100
+  - type: Material
 
 - type: entity
   parent: BaseItem
@@ -222,6 +290,13 @@
     state: skin_human_3
   - type: Item
     size: Normal
+  - type: Tag
+    tags:
+    - RawLeather
+  - type: PhysicalComposition
+    materialComposition:
+      RawLeather: 200
+  - type: Material
 
 # Муравьи
 
@@ -248,7 +323,7 @@
     size: Small
 
 - type: entity
-  parent: FoodBase
+  parent: N14FoodEggBase
   id: ForgeFoodAntEgg
   name: яйцо гигантского муравья
   description: Крупное яйцо с мягкой оболочкой.
