@@ -1,2 +1,2 @@
-ent-BoneHelmet = костяной шлем
-    .desc = Шлем из костей, скреплённых сухожилиями.
+ent-BoneHelmet = { ent-ClothingHeadHelmetBone }
+    .desc = { ent-ClothingHeadHelmetBone.desc }

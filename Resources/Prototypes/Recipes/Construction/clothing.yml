@@ -27,7 +27,7 @@
   startNode: start
   targetNode: helmet
   category: construction-category-clothing
-  description: A helmet made of bones bound with sinew. # Forge-Change
+  description: Cool-looking helmet made of skull of your enemies. # Forge-Change
   icon: { sprite: Clothing/Head/Helmets/bone_helmet.rsi, state: icon }
   hide: false # Forge-Change
   objectType: Item

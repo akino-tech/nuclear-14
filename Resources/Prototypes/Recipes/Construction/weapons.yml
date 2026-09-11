@@ -159,7 +159,7 @@
   startNode: start
   targetNode: spear
   category: construction-category-weapons
-  description: A spear made from wood, bones and sinew. # Forge-Change
+  description: A spear made of bones. # Forge-Change
   icon: { sprite: Objects/Weapons/Melee/bone_spear.rsi, state: spear }
   hide: false # Forge-Change
   objectType: Item

@@ -1,7 +1,7 @@
 - type: construction
   id: ForgeBoneKnife
   name: костяной нож
-  description: Сделать нож из дерева, костей и сухожилий.
+  description: Самодельный нож из заточенной кости с деревянной рукоятью, скреплённой сухожилиями.
   graph: ForgeBoneKnife
   startNode: start
   targetNode: knife

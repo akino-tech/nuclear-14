@@ -1,7 +1,7 @@
 - type: construction
   id: ForgeSinewCuff
   name: петля из сухожилий
-  description: Сплести петлю из двух единиц сухожилий.
+  description: Петля из сухожилий для связывания рук. Рвётся при снятии.
   graph: ForgeSinewCuff
   startNode: start
   targetNode: cuff

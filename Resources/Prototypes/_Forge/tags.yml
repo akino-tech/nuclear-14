@@ -23,3 +23,11 @@
 - type: Tag
   id: ForgeDogHide
 
+- type: Tag
+  id: ForgeDeathclawHide
+
+- type: Tag
+  id: ForgePigratHide
+
+- type: Tag
+  id: ForgeHumanSkinLarge

@@ -1,7 +1,7 @@
 - type: construction
   id: ForgeDogHideHat
   name: шапка из псины
-  description: Сшить шапку из собачьей шкуры с помощью сухожилий.
+  description: Шапка из шкуры зверя - не только согреет в холод, но и наделит силой и свирепостью своего прежнего владельца.
   graph: ForgeDogHideHat
   startNode: start
   targetNode: hat
