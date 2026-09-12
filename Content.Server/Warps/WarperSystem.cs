@@ -1,3 +1,7 @@
+/// Forge-Change-Start
+using Content.Shared.DoAfter;
+using Content.Shared._Forge.Warps;
+/// Forge-Change-End
 using Content.Server.Ghost.Components;
 using Content.Server.Popups;
 using Content.Shared.Ghost;
@@ -21,18 +25,42 @@ public class WarperSystem : EntitySystem
     [Dependency] private readonly SharedTransformSystem _sharedTransform = default!;
     [Dependency] private readonly PullingSystem _pullingSystem = default!;
 
+    /// Forge-Change
+    [Dependency] private readonly SharedDoAfterSystem _doAfter = default!;
+
     public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<WarperComponent, InteractHandEvent>(OnInteractHand);
+        SubscribeLocalEvent<WarperComponent, WarpDoAfterEvent>(OnWarpFinished); /// Forge-Change
     }
 
     private void OnInteractHand(EntityUid uid, WarperComponent component, InteractHandEvent args)
     {
-        if (component.ID is null)
+        /// Forge-Change-Start
+        if (args.Handled)
+            return;
+
+        args.Handled = true;
+        TryTravel(uid, component, args.User);
+    }
+
+    private void OnWarpFinished(EntityUid uid, WarperComponent component, WarpDoAfterEvent args)
+    {
+        if (args.Cancelled || args.Handled)
+            return;
+
+        args.Handled = true;
+        TryTravel(uid, component, args.User, true);
+    }
+
+    private void TryTravel(EntityUid uid, WarperComponent component, EntityUid user, bool delayCompleted = false)
+    {
+        /// Forge-Change-End
+        if (string.IsNullOrEmpty(component.ID)) /// Forge-Change
         {
             Logger.DebugS("warper", "Warper has no destination");
-            _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", args.Target)), args.User, Filter.Entities(args.User), true);
+            _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", uid)), user, Filter.Entities(user), true);
             return;
         }
 
@@ -40,7 +68,7 @@ public class WarperSystem : EntitySystem
         if (dest is null)
         {
             Logger.DebugS("warper", String.Format("Warp destination '{0}' not found", component.ID));
-            _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", args.Target)), args.User, Filter.Entities(args.User), true);
+            _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", uid)), user, Filter.Entities(user), true);
             return;
         }
 
@@ -50,7 +78,7 @@ public class WarperSystem : EntitySystem
         if (destXform is null)
         {
             Logger.DebugS("warper", String.Format("Warp destination '{0}' has no transform", component.ID));
-            _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", args.Target)), args.User, Filter.Entities(args.User), true);
+            _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", uid)), user, Filter.Entities(user), true);
             return;
         }
 
@@ -59,35 +87,48 @@ public class WarperSystem : EntitySystem
         var destMap = destXform.MapID;
         if (!mapMgr.IsMapInitialized(destMap) || mapMgr.IsMapPaused(destMap))
         {
-            if (!entMan.HasComponent<GhostComponent>(args.User))
+            if (!entMan.HasComponent<GhostComponent>(user))
             {
                 // Normal ghosts cannot interact, so if we're here this is already an admin ghost.
                 Logger.DebugS("warper", String.Format("Player tried to warp to '{0}', which is not on a running map", component.ID));
-                _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", args.Target)), args.User, Filter.Entities(args.User), true);
+                _popupSystem.PopupEntity(Loc.GetString("warper-goes-nowhere", ("warper", uid)), user, Filter.Entities(user), true);
                 return;
             }
         }
 
+        /// Forge-Change-Start
+        if (!delayCompleted && component.TravelDelay > 0 && !HasComp<GhostComponent>(user))
+        {
+            _doAfter.TryStartDoAfter(new DoAfterArgs(EntityManager, user, component.TravelDelay,
+                new WarpDoAfterEvent(), uid, target: uid)
+            {
+                BreakOnMove = true,
+                NeedHand = false,
+            });
+            return;
+        }
+        /// Forge-Change-End
+
         // Forge-Change-Start
-        if (TryComp(args.User, out PullerComponent? puller) && puller.Pulling != null)
+        if (TryComp(user, out PullerComponent? puller) && puller.Pulling != null)
         {
             var pullerItem = puller.Pulling.Value;
             _sharedTransform.SetCoordinates(pullerItem, destXform.Coordinates);
             _sharedTransform.AttachToGridOrMap(pullerItem);
-            _sharedTransform.SetCoordinates(args.User, destXform.Coordinates);
-            _sharedTransform.AttachToGridOrMap(args.User);
-            _pullingSystem.TryStartPull(args.User, pullerItem); // Срёт ошибкой на клиенте, не критично, но не приятно.
+            _sharedTransform.SetCoordinates(user, destXform.Coordinates);
+            _sharedTransform.AttachToGridOrMap(user);
+            _pullingSystem.TryStartPull(user, pullerItem); // Срёт ошибкой на клиенте, не критично, но не приятно.
         }
 
         else
         {
-            _sharedTransform.SetCoordinates(args.User, destXform.Coordinates);
-            _sharedTransform.AttachToGridOrMap(args.User);
+            _sharedTransform.SetCoordinates(user, destXform.Coordinates);
+            _sharedTransform.AttachToGridOrMap(user);
         }
 
-        if (HasComp<PhysicsComponent>(args.User))
+        if (HasComp<PhysicsComponent>(user))
         {
-            _physics.SetLinearVelocity(args.User, Vector2.Zero);
+            _physics.SetLinearVelocity(user, Vector2.Zero);
         }
         // Forge-Change-End
     }
